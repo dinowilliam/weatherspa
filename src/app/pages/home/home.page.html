@@ -2,7 +2,7 @@
     <div class="search-container">
         <div class="form-inline pt-3">
             <div class="form-group">
-                <label class="pr-3">Search:</label>
+                <label class="pr-3">{{ text }}:</label>
                 <input class="form-control" [formControl]="searchControl">                
             </div>
             <button class="btn btn-dark bl-3" [disabled]="!searchControl.valid" (click)="doSearch()">Search</button>
