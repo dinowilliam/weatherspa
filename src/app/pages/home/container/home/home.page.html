@@ -1,0 +1,24 @@
+<div class="container-fluid">
+    <div class="search-container">
+        <div class="form-inline pt-3">
+            <div class="form-group">
+                <label class="pr-3">Search:</label>
+                <input class="form-control" [formControl]="searchControl">
+            </div>
+            <button class="btn btn-dark bl-3" [disabled]="!searchControl.valid" (click)="doSearch()">Search</button>
+        </div>
+        <div class="form-group">
+            <label>Search with <i>autocomplete</i></label>
+        </div>
+    </div>
+
+    <jv-loader *ngIf="loading$ | async"></jv-loader>
+
+    <div *ngIf="!(loading$ | async) && !(error$ | async) && !!(cityWeather)">
+        <jv-current-weather [cityWeather]="cityWeather"  (toggleBookmark)="onToggleBookmark()"></jv-current-weather>
+    </div>
+
+    <div *ngIf="!(loading$ | async) && error$ | async">
+        <a>Tentar novamente</a>
+    </div>
+</div>

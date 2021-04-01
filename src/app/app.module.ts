@@ -13,10 +13,9 @@ import { environment } from '../environments/environment';
 import { HomeModule } from './pages/home/home.module';
 import { BookmarksModule } from './pages/bookmarks/bookmarks.module';
 
-
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent    
   ],
   imports: [
     BrowserModule,

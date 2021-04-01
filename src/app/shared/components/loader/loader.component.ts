@@ -1,13 +1,10 @@
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'jv-loader',
-  template: `
-    <div class="spinner">
-      <div class="double-bounce1"></div>
-      <div class="double-bounce2"></div>
-    </div>
-  `,
+  templateUrl: './loader.component.html',
+  styleUrls: ['./loader.component.scss']
 })
 export class LoaderComponent {
+  
 }
