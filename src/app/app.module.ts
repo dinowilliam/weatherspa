@@ -14,6 +14,7 @@ import { environment } from '../environments/environment';
 import { HomeModule } from './pages/home/home.module';
 import { BookmarksModule } from './pages/bookmarks/bookmarks.module';
 import { reducers } from './shared/state/app.reducer';
+import { CustomRouterSerializer } from './shared/state/router/router.reducer';
 
 
 @NgModule({
@@ -29,7 +30,7 @@ import { reducers } from './shared/state/app.reducer';
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([]),
-    StoreRouterConnectingModule.forRoot()
+    StoreRouterConnectingModule.forRoot({ serializer: CustomRouterSerializer })
   ],
   providers: [],
   bootstrap: [AppComponent]
