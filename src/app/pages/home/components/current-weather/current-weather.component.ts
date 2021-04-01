@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, Output, EventEmitter } from '@angular/core';
+
 import { CityWeather } from 'src/app/shared/models/weather.model';
 
 @Component({

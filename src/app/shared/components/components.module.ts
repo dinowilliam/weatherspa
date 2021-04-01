@@ -11,8 +11,7 @@ import { DetailedWeatherComponent } from './detailed-weather/detailed-weather.co
     FormsModule
   ],
   declarations: [
-    LoaderComponent,
-    
+    LoaderComponent,    
     DetailedWeatherComponent,
   ],
   exports: [
