@@ -21,7 +21,7 @@ import * as fromBookmarksSelectors from '../../../bookmarks/state/bookmarks.sele
 })
 
 export class HomePage implements OnInit, OnDestroy {
-  
+
   cityWeather$: Observable<CityWeather>;
   cityWeather: CityWeather;
   loading$: Observable<boolean>;
@@ -43,24 +43,24 @@ export class HomePage implements OnInit, OnDestroy {
     this.searchControl = new FormControl('', Validators.required);
 
     this.searchControlWithAutocomplete = new FormControl(undefined);
-    
+
     this.searchControlWithAutocomplete.valueChanges
       .pipe(takeUntil(this.componentDestroyed$))
       .subscribe((value: CityTypeaheadItem) => {
         if (!!value) {
-          this.store.dispatch(fromHomeActions.loadCurrentWeatherById({id: value.geonameid.toString()}));
+          this.store.dispatch(fromHomeActions.loadCurrentWeatherById({ id: value.geonameid.toString() }));
         }
       });
 
     this.cityWeather$ = this.store.pipe(select(fromHomeSelectors.selectCurrentWeather));
-    
+
     this.cityWeather$
       .pipe(takeUntil(this.componentDestroyed$))
       .subscribe(value => this.cityWeather = value)
-    
+
     this.loading$ = this.store.pipe(select(fromHomeSelectors.selectCurrentWeatherLoading));
     this.error$ = this.store.pipe(select(fromHomeSelectors.selectCurrentWeatherError));
-    
+
     this.bookmarksList$ = this.store.pipe(select(fromBookmarksSelectors.selectBookmarksList));
 
     this.isCurrentFavorite$ = combineLatest([this.cityWeather$, this.bookmarksList$])
@@ -73,16 +73,16 @@ export class HomePage implements OnInit, OnDestroy {
         }),
       );
   }
-  
+
   ngOnDestroy() {
     this.componentDestroyed$.next();
     this.componentDestroyed$.unsubscribe();
     this.store.dispatch(fromHomeActions.clearHomeState());
   }
 
-  doSearch(){
+  doSearch() {
     const query = this.searchControl.value;
-    this.store.dispatch(fromHomeActions.loadCurrentWeather( { query } ));
+    this.store.dispatch(fromHomeActions.loadCurrentWeather({ query }));
   }
 
   onToggleBookmark() {
