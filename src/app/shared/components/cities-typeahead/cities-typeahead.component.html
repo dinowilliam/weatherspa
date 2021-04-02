@@ -8,9 +8,9 @@
        (typeaheadLoading)="loading = $event"
        [disabled]="disabled"
        class="form-control"
-       placeholder="Pesquisar">
+       placeholder="Search">
 
-<div *ngIf="loading">Carregando</div>
+<div *ngIf="loading">Loading</div>
 
 <ng-template let-item="item" #itemTemplate>
   <span>{{ item.name }}, {{ item.country }}</span>

@@ -2,9 +2,9 @@
   <div class="bookmarks-container">
 
     <div>
-      <h3>Favoritos</h3>
+      <h3>Bookmarks</h3>
 
-      <div *ngIf="!(bookmarks$ | async).length">Nenhum favorito adicionado</div>
+      <div *ngIf="!(bookmarks$ | async).length">No bookmark found</div>
 
       <ul class="list-unstyled">
         <li *ngFor="let bookmark of bookmarks$ | async">
@@ -20,7 +20,7 @@
     </div>
 
     <div>
-      <label>Add city to Favorites</label>
+      <label>Add city to Bookmarks</label>
       <jv-cities-typeahead [formControl]="searchTypeaheadControl"></jv-cities-typeahead>
     </div>
 
