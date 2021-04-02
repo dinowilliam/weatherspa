@@ -6,11 +6,14 @@ import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
+import {PortalModule} from '@angular/cdk/portal'
+
 import { HomePage } from './containers/home/home.page';
 import { homeReducer } from './state/home.reducer';
 import { HomeEffects } from './state/home.effects';
 import { ComponentsModule } from 'src/app/shared/components/components.module';
 import { CurrentWeatherComponent } from './components/current-weather/current-weather.component';
+import { UnitSelectorComponent } from './containers/unit-selector/unit-selector.component';
 
 
 @NgModule({
@@ -20,11 +23,13 @@ import { CurrentWeatherComponent } from './components/current-weather/current-we
     RouterModule,
     StoreModule.forFeature('home', homeReducer),
     EffectsModule.forFeature([HomeEffects]),
+    PortalModule,
     ComponentsModule,
   ],
   declarations: [
     HomePage,
     CurrentWeatherComponent,
+    UnitSelectorComponent,
   ],
 })
 export class HomeModule { }

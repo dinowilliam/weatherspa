@@ -6,11 +6,9 @@
         <input class="form-control" [formControl]="searchControl">
         <div class="input-group-append">
           <button class="btn btn-dark bl-3" [disabled]="!searchControl.valid" (click)="doSearch()">Search</button>
-        </div></div>
+        </div>
       </div>
     </div>
-
-
     <div class="form-group">
       <label>Search with <i>autocomplete</i></label>
       <jv-cities-typeahead [formControl]="searchControlWithAutocomplete"></jv-cities-typeahead>
